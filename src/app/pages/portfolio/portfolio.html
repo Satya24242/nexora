@@ -1,0 +1,46 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Portfolio</span>
+    <h1>Real results for real businesses</h1>
+    <p>A look at how we've helped clients cut costs, close security gaps, and scale their technology.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid--2">
+      @for (study of caseStudies; track study.title) {
+        <div class="card case-study">
+          <div class="case-study__header">
+            <mat-icon class="case-study__icon">{{ study.icon }}</mat-icon>
+            <div>
+              <span class="case-study__category">{{ study.category }}</span>
+              <span class="case-study__client">{{ study.client }}</span>
+            </div>
+          </div>
+          <h2>{{ study.title }}</h2>
+          <p>{{ study.summary }}</p>
+          <div class="case-study__result">
+            <mat-icon>trending_up</mat-icon>
+            <span>{{ study.result }}</span>
+          </div>
+          <mat-chip-set class="case-study__tags">
+            @for (tag of study.tags; track tag) {
+              <mat-chip disabled>{{ tag }}</mat-chip>
+            }
+          </mat-chip-set>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta__inner">
+    <div>
+      <h2>Want results like these for your business?</h2>
+      <p>Share a bit about your goals and we'll map out how we'd approach it.</p>
+    </div>
+    <a mat-flat-button color="primary" routerLink="/contact">Start a Project</a>
+  </div>
+</section>

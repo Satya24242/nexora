@@ -1,0 +1,43 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Insights</span>
+    <h1>Practical IT advice, no fluff</h1>
+    <p>Notes from our engineers and security team on the technology decisions that actually move the needle.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <article class="featured card">
+      <mat-icon class="featured__icon">{{ featured.icon }}</mat-icon>
+      <div class="featured__body">
+        <span class="eyebrow">{{ featured.category }}</span>
+        <h2>{{ featured.title }}</h2>
+        <p>{{ featured.summary }}</p>
+        <div class="article-meta">
+          <span>{{ featured.date }}</span>
+          <span class="dot">&middot;</span>
+          <span>{{ featured.readTime }}</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="grid grid--3 article-grid">
+      @for (article of articles; track article.title) {
+        <article class="card article-card">
+          <mat-icon class="article-card__icon">{{ article.icon }}</mat-icon>
+          <mat-chip-set>
+            <mat-chip disabled>{{ article.category }}</mat-chip>
+          </mat-chip-set>
+          <h3>{{ article.title }}</h3>
+          <p>{{ article.summary }}</p>
+          <div class="article-meta">
+            <span>{{ article.date }}</span>
+            <span class="dot">&middot;</span>
+            <span>{{ article.readTime }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

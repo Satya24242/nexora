@@ -1,0 +1,69 @@
+.mission {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.mission__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-left: 2px solid var(--brand-border);
+  padding-left: 24px;
+}
+
+.timeline-item__year {
+  display: block;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin-bottom: 4px;
+}
+
+@media (max-width: 860px) {
+  .mission {
+    grid-template-columns: 1fr;
+  }
+}
+
+.value-card {
+  text-align: left;
+
+  mat-icon {
+    color: var(--brand-primary);
+    background: var(--brand-surface);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 26px;
+    width: 26px;
+    height: 26px;
+    margin-bottom: 16px;
+  }
+}
+
+.team-card {
+  text-align: center;
+  padding: 24px;
+}
+
+.team-card__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 auto 16px;
+}
+
+.team-card h3 {
+  margin-bottom: 4px;
+}
+
+.team-card p {
+  font-size: 0.9rem;
+}

@@ -1,0 +1,87 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Contact</span>
+    <h1>Let's talk about your technology</h1>
+    <p>Tell us a bit about your business and we'll get back to you within one business day.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-layout">
+    <div class="contact-form-wrap card">
+      @if (submitted()) {
+        <div class="success">
+          <mat-icon>check_circle</mat-icon>
+          <h2>Thanks — message sent!</h2>
+          <p>A member of our team will reach out within one business day.</p>
+        </div>
+      } @else {
+        <h2>Send us a message</h2>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form">
+          <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="name" placeholder="Jane Doe" />
+            @if (form.controls.name.invalid && form.controls.name.touched) {
+              <mat-error>Please enter your name.</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="jane@company.com" />
+            @if (form.controls.email.invalid && form.controls.email.touched) {
+              <mat-error>Please enter a valid email.</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Company (optional)</mat-label>
+            <input matInput formControlName="company" placeholder="Acme Inc." />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Service Interested In</mat-label>
+            <mat-select formControlName="service">
+              @for (option of serviceOptions; track option) {
+                <mat-option [value]="option">{{ option }}</mat-option>
+              }
+            </mat-select>
+            @if (form.controls.service.invalid && form.controls.service.touched) {
+              <mat-error>Please select a service.</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>How can we help?</mat-label>
+            <textarea matInput rows="4" formControlName="message" placeholder="Tell us about your current setup or challenge..."></textarea>
+            @if (form.controls.message.invalid && form.controls.message.touched) {
+              <mat-error>Please provide a few details (10+ characters).</mat-error>
+            }
+          </mat-form-field>
+
+          <button mat-flat-button color="primary" type="submit" class="full-width">
+            Send Message
+          </button>
+        </form>
+      }
+    </div>
+
+    <div class="contact-info">
+      @for (channel of channels; track channel.title) {
+        <a class="contact-channel" [href]="channel.href">
+          <mat-icon>{{ channel.icon }}</mat-icon>
+          <div>
+            <span class="contact-channel__title">{{ channel.title }}</span>
+            <span class="contact-channel__value">{{ channel.value }}</span>
+          </div>
+        </a>
+      }
+
+      <div class="contact-hours card">
+        <h3>Support Hours</h3>
+        <p>Helpdesk: 24/7/365</p>
+        <p>Sales & Consulting: Mon–Fri, 8am–6pm ET</p>
+      </div>
+    </div>
+  </div>
+</section>

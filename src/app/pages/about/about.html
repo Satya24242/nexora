@@ -1,0 +1,82 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">About Nexora</span>
+    <h1>We started Nexora because IT support shouldn't feel like a black box</h1>
+    <p>
+      For over a decade we've helped growing companies run reliable, secure technology
+      without needing a full in-house IT department.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container mission">
+    <div>
+      <span class="eyebrow">Our Mission</span>
+      <h2>Give growing businesses enterprise-grade IT, without the enterprise complexity</h2>
+      <p>
+        Most small and mid-sized companies are stuck choosing between an overworked internal IT
+        hire and an impersonal call center. We built Nexora to be the third option: a dedicated
+        team that knows your systems, answers the phone, and treats your business like it's ours.
+      </p>
+      <p>
+        Today we support over 250 companies across logistics, healthcare, finance, and retail —
+        managing everything from daily helpdesk tickets to full cloud transformations.
+      </p>
+    </div>
+    <div class="mission__timeline">
+      @for (m of milestones; track m.year) {
+        <div class="timeline-item">
+          <span class="timeline-item__year">{{ m.year }}</span>
+          <p>{{ m.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">What We Believe</span>
+      <h2>The values behind every engagement</h2>
+    </div>
+    <div class="grid grid--4">
+      @for (value of values; track value.title) {
+        <div class="card value-card">
+          <mat-icon>{{ value.icon }}</mat-icon>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Leadership</span>
+      <h2>The team behind your infrastructure</h2>
+    </div>
+    <div class="grid grid--4">
+      @for (member of team; track member.name) {
+        <div class="team-card">
+          <div class="team-card__avatar">{{ member.initials }}</div>
+          <h3>{{ member.name }}</h3>
+          <p>{{ member.role }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta__inner">
+    <div>
+      <h2>Want to see if we're the right fit?</h2>
+      <p>Let's talk through your current setup and where you want to be.</p>
+    </div>
+    <a mat-flat-button color="primary" routerLink="/contact">Schedule a Call</a>
+  </div>
+</section>

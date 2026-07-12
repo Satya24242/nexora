@@ -1,0 +1,55 @@
+.case-study {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.case-study__icon {
+  color: var(--brand-primary);
+  background: var(--brand-surface);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.case-study__category {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-accent);
+}
+
+.case-study__client {
+  display: block;
+  font-weight: 600;
+  color: var(--brand-ink);
+}
+
+.case-study__result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #16a34a;
+  font-weight: 700;
+  margin-block: 16px 12px;
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.case-study__tags {
+  margin-top: auto;
+}

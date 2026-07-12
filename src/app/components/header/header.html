@@ -1,0 +1,54 @@
+<mat-toolbar class="header">
+  <div class="header__inner">
+    <a class="brand" routerLink="/" (click)="closeMenu()">
+      <mat-icon class="brand__icon">hub</mat-icon>
+      <span class="brand__name">Nexora<span class="brand__accent">IT</span></span>
+    </a>
+
+    <nav class="nav nav--desktop">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="nav__link"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <a mat-flat-button color="primary" routerLink="/contact" class="nav__cta">
+      Get a Quote
+    </a>
+
+    <button
+      class="nav__toggle"
+      mat-icon-button
+      type="button"
+      aria-label="Toggle navigation menu"
+      (click)="toggleMenu()"
+    >
+      <mat-icon>{{ menuOpen() ? 'close' : 'menu' }}</mat-icon>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <nav class="nav nav--mobile">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="nav__link"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      }
+      <a mat-flat-button color="primary" routerLink="/contact" (click)="closeMenu()">
+        Get a Quote
+      </a>
+    </nav>
+  }
+</mat-toolbar>

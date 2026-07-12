@@ -1,0 +1,111 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <span class="eyebrow">Managed IT &amp; Cloud Partner</span>
+      <h1>Technology that keeps your business moving — not blocking.</h1>
+      <p class="hero__lead">
+        Nexora IT Solutions delivers managed support, cloud infrastructure, and cybersecurity
+        for growing companies who need enterprise-grade IT without the enterprise headcount.
+      </p>
+      <div class="hero__actions">
+        <a mat-flat-button color="primary" routerLink="/contact">Get a Free IT Assessment</a>
+        <a mat-stroked-button routerLink="/services">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero__panel">
+      <mat-icon class="hero__panel-icon">hub</mat-icon>
+      <div class="hero__panel-item">
+        <mat-icon>check_circle</mat-icon>
+        <span>24/7 monitored infrastructure</span>
+      </div>
+      <div class="hero__panel-item">
+        <mat-icon>check_circle</mat-icon>
+        <span>SOC 2-aligned security practices</span>
+      </div>
+      <div class="hero__panel-item">
+        <mat-icon>check_circle</mat-icon>
+        <span>Dedicated account engineers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats__grid">
+    @for (stat of stats; track stat.label) {
+      <div class="stat">
+        <span class="stat__value">{{ stat.value }}</span>
+        <span class="stat__label">{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">What We Do</span>
+      <h2>Full-stack IT services under one roof</h2>
+      <p>From daily helpdesk tickets to full cloud migrations, our team covers the entire technology stack.</p>
+    </div>
+    <div class="grid grid--3">
+      @for (service of services; track service.title) {
+        <div class="card service-card">
+          <mat-icon class="service-card__icon">{{ service.icon }}</mat-icon>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">How It Works</span>
+      <h2>Onboarding without the chaos</h2>
+      <p>A predictable process that gets you from first call to fully supported in weeks, not months.</p>
+    </div>
+    <div class="grid grid--4">
+      @for (step of steps; track step.number) {
+        <div class="step">
+          <span class="step__number">{{ step.number }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Client Results</span>
+      <h2>Trusted by teams who can't afford downtime</h2>
+    </div>
+    <div class="grid grid--3">
+      @for (t of testimonials; track t.name) {
+        <div class="card testimonial">
+          <mat-icon class="testimonial__quote-icon">format_quote</mat-icon>
+          <p class="testimonial__quote">{{ t.quote }}</p>
+          <div class="testimonial__author">
+            <span class="testimonial__name">{{ t.name }}</span>
+            <span class="testimonial__role">{{ t.role }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta__inner">
+    <div>
+      <h2>Ready for IT that doesn't slow you down?</h2>
+      <p>Book a free 30-minute assessment and get a clear picture of your current risk and opportunities.</p>
+    </div>
+    <a mat-flat-button color="primary" routerLink="/contact">Talk to an Expert</a>
+  </div>
+</section>
