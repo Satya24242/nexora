@@ -8,7 +8,7 @@ You are given a task as $ARGUMENTS. It will be either:
 
 Treat $ARGUMENTS as the authoritative spec for what to build. If it contains a Jira key (e.g. `NEX-123`), keep that key handy for the commit message and PR title/body — but never fetch or invent ticket details beyond what was pasted.
 
-Run this pipeline, in order, without stopping to ask permission between steps (the user invoking `/ship` is the permission):
+Run steps 1-4 in order without stopping to ask permission between them. **Stop after step 4 and wait for the user's explicit go-ahead before doing step 5 or 6** — they want to manually test the change themselves before anything is committed or pushed.
 
 ## 1. Plan
 Read $ARGUMENTS and restate the concrete, testable requirements in a short internal plan before touching code. If the instructions are too ambiguous to implement safely (e.g. missing a target component/endpoint, contradictory acceptance criteria), stop here and ask the user instead of guessing.
@@ -28,8 +28,16 @@ npm test
 - Retry at most 3 times total. If tests still fail after 3 attempts, **stop immediately** — do not commit, push, or open a PR. Report exactly what's failing and what you tried instead.
 - Never proceed to step 5 on a red test run.
 
+## Checkpoint — stop here
+Once `npm test` is green, **stop and end your turn.** Do not run any `git` or `gh` command yet. Report to the user:
+- what you implemented and which files changed
+- that the change is sitting uncommitted in the working tree, ready for them to manually run/click through
+- that `npm test` passes, with the count
+
+Then wait. Only continue to step 5 when the user replies with something that clearly means "go ahead" (e.g. "push it", "looks good, ship it", "go ahead") — not a vague acknowledgment. If they instead report a problem, fix it and return to this checkpoint; do not push a fix without a fresh go-ahead.
+
 ## 5. Branch, commit, push
-Only after tests pass:
+Only after tests pass AND the user has given the go-ahead at the checkpoint above:
 ```
 git checkout -b ship/<short-kebab-slug-of-the-task>
 git add <only the files you changed>
